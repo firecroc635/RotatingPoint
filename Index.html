@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+            });
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Document</title>
+   
+</head>
+
+
+
+<body>
+    <!-- This part of the code "main frame" is where everything in this html scrip takes place. -->
+    <div class="main-frame" >
+        <h1 class="OverlRed title "> Rotating a point through equations </h1>
+        <h2 class="title font30 OverlNeonblue ">A dummy's guide</h2>
+        
+        
+        <!-- This is the prelogue of the text with the "square" div at the bottom with a demo of the rotating function -->
+
+        <div class="slidecontainer">
+            <p>point a X:</p>
+            <input type="range" id="apointX"  min="0" max="450" value="50" step = "50">
+            <p>point a Y:</p>
+            <input type="range" id="apointY"  min="0" max="450" value="50" step = "50">
+            <p>Degree:</p>
+            <input type="range" id="Degree"  min="0" max="360" value="180" step = "5">
+            <span id="degreeValue">180</span>
+            <script src="Slid.js"></script>
+            <h2>Desmos:</h2>
+            <a href="https://www.desmos.com/calculator/q2s9r3mbkn" target="_blank" class="lightBlue">Desmos link</a>
+            
+            
+        </div>
+
+        <script src="sliders.js"></script>
+
+        <canvas id="PreSquare" width="450" height="450" class="canvasSetup2"></canvas>
+        <script src="PreDemo.js"></script>
+
+        <p class="font15">There is no range slide for centre coordinates because the javascript would give strange errors that were unfixable due to being so odd. If you want to have full control go to the desmos link</p>
+        <h2 class="font35 ">Summary and Contents:</h2>
+        <p class="translate50px">This document is written to show how I made an equation for rotating points, and to act as a record of proof that I made this equation.</p>
+        <h3 class="UnderlCyan ">This document entails:</h3>
+        <div class="BPCircle">
+            <li>Explanation and preperation before creation of the equation</li>
+            <li>Creating the equation</li>
+            <li>Writing this in Javascript and implementing it into html</li>
+            
+        </div>
+
+        <!-- After demo square -->
+        <pre>
+
+        </pre>
+        <span class="headings1">Firstly...</span> <span class="headings1 font45Heading">Why?</span>
+        <p class="translate50px indent20"> The reason I decided to create this equation was to make transformation rotation questions easier for myself. You see, I've never been a fan of using vellum paper for rotations, so I wanted a better solution. It's worth mentioning that I've actually made equations for transformations before, just to simplify things for myself. I even came up with a scaling equation that wasn't explicitly taught to me, and I had a blast writing it. However, when it comes to this specific equation for rotation, I want to clarify that I'm fully aware of the existence of other formulas. Nevertheless, I made this equation entirely from scratch, without referencing any other sources. I wanted to challenge myself and create something unique.</p>
+        <h1>Resource information list:</h1>
+        
+
+        <div class="font23 BPFCircle">
+            <li>$\sin(), \cos(), \tan()$ </li>
+            <p class="font20">This is a short info reference for trigonometry and how they work</p>
+            <li>$ c = \sqrt{\smash[b]{ a^{2} + b^{2} }} $</li>
+            <p class="font20"> This is a short info reference for pythagorean theorem</p>
+        </div>
+        <pre>
+            
+        </pre>
+        <h1 class="highlightpink">Let's Begin</h1>
+        
+        <h1 class="OverlDarkRed">1. The Start</h1>
+        <div class="translate50px">
+            <p>So, first we will draw a graph with 2 points. One being the centre of rotation, and another being the point we want to rotate.</p>
+            <p class="font23 bold">Centre of rotation:</p>
+            <p style="font-family: Mathfont;" class="font20">c = (cₓ,cᵧ)</p>
+            <p class="font23 bold">the point we wish to rotate:</p>
+            <p style="font-family: Mathfont;" class="font20">a = (aₓ,aᵧ)</p>
+
+            <canvas id="canvas" width="350" height="350" class="canvasSetup"></canvas>
+            <script src="Canvas2Dot.js"></script>
+        </div>
+
+
+        <h1 class="OverlDarkRed">2. Setting the basic idea</h1>
+        <div class="translate50px">
+            <p class="font20"> We have already established what trigonometry and some informational reference earlier on in the information list above. But the graph we have shown above is a good way of displaying our graph. We should minimise it so we can focus on the graph, so let's do that! </p>
+            <canvas id="canvas1" width="350" height="350" class="canvasSetup">
+        </div>
+
+        <h3 class="font26 UnderlYellow">Alright we have drawn a simplified version of the graph above.</h3>
+        <p>Although we can try to do trigonometry right now. We do not even know what we're going to use in trigonometry yet, so let's draw some guides to hopefully make things a little familiar. Let's start by drawing a line connecting the 2 dots $ \large \overline{ca} $</p>
+        <canvas id="canvas2" width="350" height="350" class="canvasSetup"></canvas>
+        
+        <h3 class="font26 UnderlYellow"> We're getting somewhere but, can we do better? </h3>
+        <p>Let's draw some axes for the x and y of each point, and see what we can build from there!</p>
+        <canvas id="canvas3" width="350" height="350" class="canvasSetup"></canvas>
+
+        <h3 class="font26 UnderlYellow"> Have we done it?</h3>
+        <p> A keen eye would spot the 2 triangles that are formed, or a square. So we have done it! We have found a triangle, making it easier for us to apply trigonometry, as we now know the hypotenus, opposite, and adjacent of a triangle. Let's clear it up, and label the adjacent, opposite, and hypotenus. </p>
+        <canvas id="canvas4" width="350" height="350" class="canvasSetup"></canvas>
+
+        <h3 class="font26 UnderlYellow"> We have done it.</h3>
+        <p>We now know everything we need so let's list them down below below.</p>
+        <pre>
+        </pre>
+        <p>$ Hyp = \large \sqrt{(a_{x} - c_{x})^{2}+(a_{y} - c{y})^{2}} $</p>
+        <p>$ Adj = \large a_{x} - c_{x} $ The X</p>
+        <p>$ Opp = \large a_{y} - c_{y} $</p>
+        <pre>
+        </pre>
+        <p class="font20"> We now know everything we need to know, and we now can move on to the other side of this document. Finding the equation. </p>
+
+            
+            <h1 class="OverlDarkRed">3. Going into The Equations</h1>
+            <p> We have prepared everything to start. To start we need to know a little bit more, we need to know what angle the point is currently. To find this, we can use $\tan^{-1}$.</p>
+            <pre>
+            </pre>
+            <p>$$\Large \tan\theta = \frac{Opp}{Adj}$$</p>
+            <pre>
+            </pre>
+            <p>$$ \Large \theta = \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}) $$</p>
+            <pre> </pre>
+            <P>Now, we can stop here. However, a strange phenomena happens when the centre X coordinates is smaller than the point X where the result from this equation is false. Or at least not the right answer we're looking for a miscalculation on our end. The result that's produced is essentially 180 degrees off. You can see this below:</P>
+
+            <p>Angle: 90</p>
+            <canvas id="DemoRot" width="400" height="400" class="canvasSetup2"></canvas>
+            <!-- Just make the ROTATIONSHOWOFFNF.JS and put it into the same file as demo.js saves the trouble!-->
+
+            <p> So to fix this, we can just add 180 degrees when the coordinate Centre X is less than point X.</p>
+            <pre>
+            </pre>
+            <p>$$ \Large \theta = \begin{cases}
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}), \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space  a_{x} \lt c_{x}
+                \\
+                \\
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}) + 180, \space\space\space\space a_{x} \ge c_{x}
+                \end{cases}
+                $$
+            </p>
+            <p>Now let's see if that fixes the issue:</p>
+            <p>Angle: 90</p>
+            <canvas id="Democot" width="400" height="400" class="canvasSetup2"></canvas>
+            <pre>
+            </pre>
+            <p class="font23"> Now there isn't much left to do, but actually add the rotation amount, and applying it to our point. So let's do it</p>
+            <p class="font23"> Let's begin by first declaring 3 new variables. </p>
+            <pre>
+            </pre>
+            <p> The calculated angle of a(x,y) and c(x,y)</p>
+            <p>$ \large \theta = \measuredangle $</p>
+            <p> The added angle to the original angle</p>
+            <p>$ \large \alpha =  +\measuredangle$</p>
+            <p>The new rotated point</p>
+            <p>$(b_{x}, b{y})$</p>
+            <p>The hypotenus</p>
+            <p>$r = \sqrt{(a_{x} - c_{x})^{2}+(a_{y} - c_{y})^{2}}$</p>
+            <p> Now we can return back</p>
+            <pre>
+            </pre>
+            <h2 class=" OverlNeone"> So let us calculate the x and y of the rotated point. </h2>
+            <p> Starting with the X...</p>
+            <p>We know from our diagram above that the adjacent is our X essentially, so we can use cosine to calculate this.</p>
+            <pre>
+            </pre>
+
+            <p> $$ \Large \cos(\theta) = \frac{Adj}{Hyp} $$</p>
+            <p>$$ \Large \cos(\theta) = \frac{b_{x}-c_{x}}{r} $$</p>
+
+            <pre>
+            </pre>
+            <p class="font15">If you are wondering why the adjacent equation is $b_{x}$ and not $a_{x}$. it is because we have to solve for the new pair of coordinates. And so we have to swap $a_{x}$ with $b_{x}$</p>
+            <p>This is essentially the full equation to calculate the new coordinates but we must $b_{x}$ the subject of this equation.</p>
+            <pre>
+            </pre>
+
+            <p>$$\large b_{x}-c_{x} = r \space\space \times \space\space \cos(\theta) $$</p>
+            <p>$$ \large b_{x} = r \space\space \times \space\space \cos(\theta) + c_{x} $$</p>
+
+            <pre>
+            </pre>
+            <p>this equation is done, but we want to be able to add $\alpha$ which isn't hard to do, we can just add that into the cosine</p>
+            <pre>
+            </pre>
+            <p>$$ \large b_{x} = r \space\space \times \space\space \cos(\theta + \alpha) + c_{x} $$</p>
+            <pre>
+            </pre>
+            <p> we've finished this, now it's time to to also create an equation for $b_{y}$ Which isn't hard actually, we can just swap the cosine with sin.</p>
+            <pre>
+            </pre>
+            <p>$$ \large b_{y} = r \space\space \times \space\space \sin(\theta + \alpha) + c_{y} $$</p>
+            <pre>
+            </pre>
+            <p>We have done it. We have made an equation for the new coordinates, here is how both formulas look togheter and then in their fullness.</p>
+            <pre>
+            </pre>
+            <p>$$ \large b_{x} = r \space\space \times \space\space \cos(\theta + \alpha) + c_{x} $$</p>
+            <p>$$ \large b_{y} = r \space\space \times \space\space \sin(\theta + \alpha) + c_{y} $$</p>
+            <pre>
+            </pre>
+            <p>$$  b_{x} = \sqrt{(a_{x} - c_{x})^{2}+(a_{y} - c_{y})^{2}} \space\space \times \space\space \cos \Biggr(\begin{cases}\begin{rcases}
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}), \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space  a_{x} \lt c_{x}
+                \\
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}) + 180, \space\space\space\space a_{x} \gt c_{x}
+                \end{rcases} \end{cases} + \alpha \Biggr) + c_{x} $$</p>
+            <p>$$  b_{y} = \sqrt{(a_{x} - c_{x})^{2}+(a_{y} - c_{y})^{2}} \space\space \times \space\space \sin \Biggr( \begin{cases}\begin{rcases}
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}), \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space  a_{x} \lt c_{x}
+                \\
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}) + 180, \space\space\space\space a_{x} \gt c_{x}
+                \end{rcases} \end{cases} + \alpha \Biggr) + c_{y} $$</p>
+                <p> That's one big boy</p>
+            <pre>
+            </pre>
+
+            <h2 class="OverlNeone"> Let's start with formating the $\alpha$ value properly </h2>
+            <p> This step of formating the $\alpha$ is not actually neccasary. It just makes more sense when you look at it and is more conveniant.</p>
+            <p> In it's current form, when the degree is added or subtracted, it's anti-clockwise. So to fix this we have to make an equation for the $\alpha$ too but we'll use another greek letter to symbolise the degree variable. We will use $\beta$</p>
+            <p>$$ \alpha = -\beta $$</p>
+            <p> there's also another issue we must face, the rotation is about 180$\degree$s off. Essentially if we rotate this point by 90$\degree$ it will be 180$\degree$s off. So we just add another 180$\degree$s</p>
+            <p>$$ \alpha = -\beta + 180 $$</p>
+            <p class="font26"> Let's write this equation in it's true fullest insanity!</p>
+            <pre>
+            </pre>
+            <p>$$ \small  b_{y} = \sqrt{(a_{x} - c_{x})^{2}+(a_{y} - c_{y})^{2}} \space\space \times \space\space \cos \Biggr( \begin{cases} \begin{rcases}
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}), \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space  a_{x} \lt c_{x}
+                \\
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}) + 180, \space\space\space\space a_{x} \gt c_{x}
+                \end{rcases} \end{cases} -\beta + 180 \Biggr) + c_{y} $$</p>
+            <pre>
+            </pre>
+            <p>$$ \small  b_{y} = \sqrt{(a_{x} - c_{x})^{2}+(a_{y} - c_{y})^{2}} \space\space \times \space\space \sin \Biggr( \begin{cases} \begin{rcases}
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}), \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space  a_{x} \lt c_{x}
+                \\
+                \tan^{-1}(\frac{a_{y} - c_{y}}{a_{x} - c_{x}}) + 180, \space\space\space\space a_{x} \gt c_{x}
+                \end{rcases} \end{cases} -\beta + 180 \Biggr) + c_{y} $$</p>
+            <pre>
+            </pre>
+            <h2 class=" highlightpink">We have done it.</h2>
+            <h3>If you wanna see an example go back to the top of this document, there's also a desmos link to where I first wrote this equation</h3>
+
+            <p> We have completed our equation, no doubt it can be done better. But this is how I made my equation. Now let's apply this in coding!</p>
+            <pre>
+            </pre>
+            <h1 class="OverlDarkRed"> Applying the equation to Js </h1>
+            <pre>
+
+            </pre>
+            <h2 class="OverlNeone"> Writing in Js & HTML Canvas </h2>
+            
+
+            <p>Let's put a very simple setup of HTML for canvas. The important part is the &lt;canvas&gt; and the &lt; src &gt;</p>
+            <div class="CodeHeader centered"> <p class="font30 Mathfont">HTML</p></div>
+            <div class="CodeBlock">
+                <div >
+                    <pre class="translateresizepx">
+                    <code class="fontMono">      1. &#x3C;!DOCTYPE html&#x3E;
+                        2. &#x3C;html&#x3E;
+                        3. &#x3C;body&#x3E;
+                        4.
+                        5.  &#x3C;h1&#x3E;HTML5 Canvas&#x3C;/h1&#x3E;
+                        6.  &#x3C;canvas id=&#x22;myCanvas&#x22; width=&#x22;200&#x22; height=&#x22;100&#x22;
+                            style=&#x22;border:1px solid #000000;&#x22;&#x3E;&#x3C;/canvas&#x3E;
+                        7.
+                        8.  &#x3C;script src=&#x22;Canvas.js&#x22;&#x3E;&#x3C;/script&#x3E;
+                        9.
+                        10. &#x3C;/body&#x3E;
+                        11. &#x3C;/html&#x3E;</code>
+                    </pre>
+                </div>
+            </div>
+
+            <p>Now we'll write the rest of the code in JS. Starting with setting the file up and writing a function to create dots. And 2 variables for the x and y of a point, and another x y pair for the centre of rotation</p>
+
+            <div class="CodeHeader centered"> <p class="font30 Mathfont">JS</p></div>
+            <div class="CodeBlock">
+                <div >
+                    <pre class="translateresizepx">
+                            <code class="fontMono">1. const canvas = document.getElementById(&#x22;myCanvas&#x22;);
+                        2. const ctx = canvas.getContext(&#x22;2d&#x22;);
+                        3. var ax = 50; //point a X
+                        4. var ay = 25; //point a Y
+                        5. var cx = 100; //centre X
+                        6. var cy = 50; //centre y
+                        7.
+                        8. function dot(X, Y, r, Col) {
+                        9.     ctx.arc(X, Y, r, 0, 2*Math.PI);
+                        10.    ctx.fillStyle = Col;
+                        11.    ctx.fill();
+                        12.    ctx.beginpath(); } </code>
+
+                    </pre>
+                </div>
+            </div>
+    
+            <p> we can display the first dot. Dot A with a light blue. We will also create another function for the rotated point and some variable for it. And then let's run it</p>
+
+            <div class="BigCBCodeHeader centered"> <p class="font30 Mathfont">JS</p></div>
+            <div class="BigCodeBlock">
+                <div >
+                    <pre class="translateresizepx">
+                            <code class="fontMono">13.var theta;
+                        14.var hyp;
+                        15.var alpha;
+                        
+                        16.function rotatedDot(ax, ay, xcentre, ycentre, r, Col, deg) {
+                        17.  hyp = Math.hypot((ax - xcentre), (ay - ycentre))
+                        18.    
+                        19.  if (ax &lt; xcentre) {
+                        20.    theta = (Math.atan((ay - ycentre)/(ax - xcentre))) * (180/Math.PI);
+                        21.  } else {
+                        22.    theta = (Math.atan((ay - ycentre)/(ax - xcentre))) * (180/Math.PI)
+                               + 180;
+                        23.  }
+                        24.    
+                        25.  alpha = deg + 180;
+                        26.  var tempX = hyp * Math.cos((theta + alpha) * (Math.PI/180)) + xcentre;
+                        27.  var tempy = hyp * Math.sin((theta + alpha) * (Math.PI/180)) + ycentre;
+                        28.
+                        29.  console.log(tempX, tempy, "hello")
+                        30.  dot(tempX, tempy, r, Col);
+                        31.}
+                        32.
+                        33.dot(ax, ay, 8, "#90e0ef");
+                        34.rotatedDot(ax, ay, cx, cy, 8, '#ef233c', 90);
+                    </code>
+
+                    </pre>
+                </div>
+            </div>
+            <pre>
+            </pre>
+            <h2>Thank you for reading this document</h2>
+            
+            <div class="bottomwhitefooter">
+                <h1 style="text-align: center;" class="OverlRed">Rotator function document</h1>
+                <p>What was used to make this document:</p>
+                <li>KaTex</li>
+                <a href="https://katex.org/" target="_blank" class="lightBlue">KaTex</a>
+                <h2>Link to Github code</h2>
+                
+                <h2>Name and information:</h2>
+                <p> I am Arsham Shayan Shakib, and my socials are in my github page</p>
+                <a href="https://github.com/firecroc635" target="_blank" class="lightBlue">Github Page</a>
+                <div class="bottomwhitefooterreal"></div>
+            </div> 
+
+    </div> 
+</body>
+</html>

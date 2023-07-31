@@ -1,0 +1,258 @@
+:root {
+    --InitialPosY: 400px;
+}
+
+/* Establishing font families */
+@font-face {
+    font-family: Night;
+    src: url(Fonts/LEMONMILK-Regular.otf);
+}
+@font-face {
+    font-family: deja;
+    src: url(Fonts/DejaVuSerif.ttf);
+}
+@font-face {
+    font-family: Mathfont;
+    src: url(Fonts/NeoEuler-VGO00.otf);
+}
+@font-face {
+    font-family: Louis;
+    src: url(Fonts/Louis\ George\ Cafe.ttf);
+}
+@font-face {
+    font-family: Buttershin;
+    src: url(fonts/BUTTERSHINESERIF.otf);
+}
+@font-face {
+    font-family: Mono;
+    src: url(fonts/larabiefont\ rg.otf);
+}
+
+/* cnavas */
+#canvas {
+    background-color: #ffffff00;
+}
+#canvas2 {
+    background-color: #ffffff00;
+}
+.canvasSetup {
+    transform: translateX(275px);
+}
+.canvasSetup2 {
+    transform: translateX(225px);
+    border:5px solid #ffffff;
+}
+
+/* Body and syntax styles */
+body {
+    color: rgb(245, 245, 245);
+    background-color: rgb(53, 53, 53);
+    font-family: 'Louis';
+    font-size: 19px;
+    text-align: justify;
+    overflow-x: hidden;
+}
+p {
+    font-size: 20px;
+}
+
+/* Other classes */
+
+/* text set up */
+.main-frame {
+    margin: auto;
+    width: 910px;   
+    
+}
+.ender {
+    background-color: rgb(180, 180, 180);
+}
+
+/* text styles */
+.title {
+    font-size: 40px;
+    font-family: 'night';
+    text-align: center;
+}
+.paragraphe {
+    text-align: left;
+}
+.headings1 {
+    font-weight:bold;
+    font-size: 35px;
+}
+.font45Heading {
+    font-size: 45px;
+}
+.font35 {
+    font-size: 35px
+}
+.centered {
+    text-align: center;
+}
+.font23 {
+    font-size: 23px;
+}
+.font26 {
+    font-size: 26px;
+}
+.font30 {
+    font-size: 30px;
+}
+.font20 {
+    font-size: 20px;
+}
+.font15 {
+    font-size: 15px;
+}
+.indent20 {
+    text-indent: 20px;
+}
+.fontMono {
+    font-family: Mono;
+}
+.bold {
+    font-weight: bold;
+}
+.Underl {
+    text-decoration: underline;
+}
+.OverlRed {
+   text-decoration-line: overline; 
+   text-decoration-color: #ff0074;
+}
+.OverlNeonblue {
+    text-decoration-line: overline; 
+    text-decoration-color: #42bfdd;
+ }
+ .OverlNeone {
+    text-decoration-line: overline; 
+    text-decoration-color: #ff8d0b;
+    text-decoration-thickness: 5px;
+    text-decoration-style:solid;
+ }
+ .OverlDarkRed {
+    text-decoration-line: overline; 
+    text-decoration-color: #e63946;
+    text-decoration-thickness: 7px;
+    text-decoration-style:solid;
+ }
+.UnderlCyan {
+    text-decoration-line: underline; 
+    text-decoration-color: #6a81e7;
+    text-decoration-thickness: 3px;
+}
+.UnderlYellow {
+    text-decoration-line: underline; 
+    text-decoration-color: #f2cc8f;
+    text-decoration-thickness: 2px;
+    text-decoration-style: solid;
+}
+
+/* moving */
+.translate50px {
+    transform: translateX(30px);
+}
+.translateresizepx {
+    transform: translateX(-270px);
+}
+.moveleft {
+    transform: translateX(-50px);
+}
+
+/* Colourings and highlights */
+.highlightpink {
+    background-image: linear-gradient(to right, #0071ff, #9d4edd, #ff0074, #ffffff00, #ffffff00, #ffffff00);
+}
+.lightBlue {
+    color: #758dfa;
+}
+
+/* shapes */
+.square {
+    height: 450px;
+    width: 450px;
+    background-color: #838383;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.bottomwhitefooter {
+
+    width: 950px;
+    background-color: #252525;
+    position: absolute;
+}
+.bottomwhitefooterreal {
+    height: 60px;
+    width: 950px;
+    background-color: #252525;
+    position: absolute;
+}
+
+.CodeBlock {
+    width: 650px;
+    height: 300px;
+    margin: auto;
+    background-color: #585853;
+    border-width: 12px;
+    border-style: solid;
+    border-color: #c0c0c0;
+    font-family: deja;
+}
+
+.BigCodeBlock {
+    width: 900;
+    height: 575px;
+    margin: auto;
+    background-color: #585853;
+    border-width: 12px;
+    border-style: solid;
+    border-color: #c0c0c0;
+    font-family: deja;
+}
+.BiglCodeBlock {
+    width: 900;
+    height: 600px;
+    margin: auto;
+    background-color: #585853;
+    border-width: 12px;
+    border-style: solid;
+    border-color: #c0c0c0;
+    font-family: deja;
+}
+.BigCBCodeHeader {
+    width: 120px;
+    height: 40px;
+    transform: translateX(8px);
+    color: #1d1d1d;
+    background-color: #c0c0c0;
+    text-align: center;
+}
+.CodeHeader {
+    width: 120px;
+    height: 40px;
+    transform: translateX(128px);
+    color: #1d1d1d;
+    background-color: #c0c0c0;
+    text-align: center;
+}
+
+/* bulletpoints */
+.BPCircle {
+    transform: translateX(50px);
+    line-height: 50px;
+    list-style-type:circle;
+    
+}
+.BPFCircle {
+    line-height: 25px;
+}
+
+/* Range */
+.slidecontainer {
+    position: absolute;
+    width: 100%;
+}
+
