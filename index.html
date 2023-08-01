@@ -23,7 +23,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/styles.css" />
 
     <title>Document</title>
    
@@ -275,18 +275,18 @@
             <div class="CodeBlock">
                 <div >
                     <pre class="translateresizepx">
-                    <code class="fontMono">      1. &#x3C;!DOCTYPE html&#x3E;
-                        2. &#x3C;html&#x3E;
-                        3. &#x3C;body&#x3E;
-                        4.
-                        5.  &#x3C;h1&#x3E;HTML5 Canvas&#x3C;/h1&#x3E;
-                        6.  &#x3C;canvas id=&#x22;myCanvas&#x22; width=&#x22;200&#x22; height=&#x22;100&#x22;
-                            style=&#x22;border:1px solid #000000;&#x22;&#x3E;&#x3C;/canvas&#x3E;
-                        7.
-                        8.  &#x3C;script src=&#x22;Canvas.js&#x22;&#x3E;&#x3C;/script&#x3E;
-                        9.
-                        10. &#x3C;/body&#x3E;
-                        11. &#x3C;/html&#x3E;</code>
+                    <code class="fontMono">                 1. &#x3C;!DOCTYPE html&#x3E;
+                                                            2. &#x3C;html&#x3E;
+                                                            3. &#x3C;body&#x3E;
+                                                            4.
+                                                            5.  &#x3C;h1&#x3E;HTML5 Canvas&#x3C;/h1&#x3E;
+                                                            6.  &#x3C;canvas id=&#x22;myCanvas&#x22; width=&#x22;200&#x22;  height=&#x22;100&#x22;
+                                                                style=&#x22;border:1px solid #000000;&#x22;&#x3E;&#x3C;/canvas&gt;;
+                                                            7.
+                                                            8.  &#x3C;script src=&#x22;Canvas.js&#x22;&#x3E;&#x3C;/script&#x3E;
+                                                            9.
+                                                            10. &#x3C;/body&#x3E;
+                                                            11. &#x3C;/html&#x3E;</code>
                     </pre>
                 </div>
             </div>
@@ -298,17 +298,17 @@
                 <div >
                     <pre class="translateresizepx">
                             <code class="fontMono">1. const canvas = document.getElementById(&#x22;myCanvas&#x22;);
-                        2. const ctx = canvas.getContext(&#x22;2d&#x22;);
-                        3. var ax = 50; //point a X
-                        4. var ay = 25; //point a Y
-                        5. var cx = 100; //centre X
-                        6. var cy = 50; //centre y
-                        7.
-                        8. function dot(X, Y, r, Col) {
-                        9.     ctx.arc(X, Y, r, 0, 2*Math.PI);
-                        10.    ctx.fillStyle = Col;
-                        11.    ctx.fill();
-                        12.    ctx.beginpath(); } </code>
+                                                            2. const ctx = canvas.getContext(&#x22;2d&#x22;);
+                                                            3. var ax = 50; //point a X
+                                                            4. var ay = 25; //point a Y
+                                                            5. var cx = 100; //centre X
+                                                            6. var cy = 50; //centre y
+                                                            7.
+                                                            8. function dot(X, Y, r, Col) {
+                                                            9.     ctx.arc(X, Y, r, 0, 2*Math.PI);
+                                                            10.    ctx.fillStyle = Col;
+                                                            11.    ctx.fill();
+                                                            12.    ctx.beginpath(); } </code>
 
                     </pre>
                 </div>
@@ -321,29 +321,28 @@
                 <div >
                     <pre class="translateresizepx">
                             <code class="fontMono">13.var theta;
-                        14.var hyp;
-                        15.var alpha;
-                        
-                        16.function rotatedDot(ax, ay, xcentre, ycentre, r, Col, deg) {
-                        17.  hyp = Math.hypot((ax - xcentre), (ay - ycentre))
-                        18.    
-                        19.  if (ax &lt; xcentre) {
-                        20.    theta = (Math.atan((ay - ycentre)/(ax - xcentre))) * (180/Math.PI);
-                        21.  } else {
-                        22.    theta = (Math.atan((ay - ycentre)/(ax - xcentre))) * (180/Math.PI)
-                               + 180;
-                        23.  }
-                        24.    
-                        25.  alpha = deg + 180;
-                        26.  var tempX = hyp * Math.cos((theta + alpha) * (Math.PI/180)) + xcentre;
-                        27.  var tempy = hyp * Math.sin((theta + alpha) * (Math.PI/180)) + ycentre;
-                        28.
-                        29.  console.log(tempX, tempy, "hello")
-                        30.  dot(tempX, tempy, r, Col);
-                        31.}
-                        32.
-                        33.dot(ax, ay, 8, "#90e0ef");
-                        34.rotatedDot(ax, ay, cx, cy, 8, '#ef233c', 90);
+                                                            14.var hyp;
+                                                            15.var alpha;
+                                                            16.function rotatedDot(ax, ay, xcentre, ycentre, r, Col, deg) {
+                                                            17.  hyp = Math.hypot((ax - xcentre), (ay - ycentre))
+                                                            18.    
+                                                            19.  if (ax &lt; xcentre) {
+                                                            20.    theta = (Math.atan((ay - ycentre)/(ax - xcentre))) * (180/Math.PI);
+                                                            21.  } else {
+                                                            22.    theta = (Math.atan((ay - ycentre)/(ax - xcentre))) * (180/Math.PI)
+                                                               + 180;
+                                                            23.  }
+                                                            24.    
+                                                            25.  alpha = deg + 180;
+                                                            26.  var tempX = hyp * Math.cos((theta + alpha) * (Math.PI/180)) + xcentre;
+                                                            27.  var tempy = hyp * Math.sin((theta + alpha) * (Math.PI/180)) + ycentre;
+                                                            28.
+                                                            29.  console.log(tempX, tempy, "hello")
+                                                            30.  dot(tempX, tempy, r, Col);
+                                                            31.}
+                                                            32.
+                                                            33.dot(ax, ay, 8, "#90e0ef");
+                                                            34.rotatedDot(ax, ay, cx, cy, 8, '#ef233c', 90);
                     </code>
 
                     </pre>
@@ -354,15 +353,18 @@
             <h2>Thank you for reading this document</h2>
             
             <div class="bottomwhitefooter">
-                <h1 style="text-align: center;" class="OverlRed">Rotator function document</h1>
-                <p>What was used to make this document:</p>
-                <li>KaTex</li>
-                <a href="https://katex.org/" target="_blank" class="lightBlue">KaTex</a>
-                <h2>Link to Github code</h2>
-                
-                <h2>Name and information:</h2>
-                <p> I am Arsham Shayan Shakib, and my socials are in my github page</p>
-                <a href="https://github.com/firecroc635" target="_blank" class="lightBlue">Github Page</a>
+                <div class="translate50px">
+                    <h1 style="text-align: center;" class="OverlRed">Rotator function document</h1>
+                    <p>What was used to make this document:</p>
+                    <li>KaTex</li>
+                    <a href="https://katex.org/" target="_blank" class="lightBlue">KaTex</a>
+                    <h2>Link to Github code</h2>
+                    <a href="https://github.com/firecroc635/RotatingPoint" target="_blank" class="lightBlue">Github Page</a>
+                    <h2>Name and information:</h2>
+                    <p> I am Arsham Shayan Shakib, and my socials are in my github page</p>
+                    <a href="https://github.com/firecroc635" target="_blank" class="lightBlue">Github Page</a>
+                    
+                </div>
                 <div class="bottomwhitefooterreal"></div>
             </div> 
 
